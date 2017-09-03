@@ -1,0 +1,48 @@
+.preview {
+	display: block;
+	text-align: left;
+	@include font-size-small;
+	margin: .75em 0;
+	//@include bookend;
+	color: $light;
+}
+
+.preview-graphic {
+	margin-bottom: .75rem;
+}
+
+.preview-body {
+	> * { margin-top: .25em; margin-bottom: .25em; }
+}
+
+.previews {
+	@include flex-row;
+	@include flex-align(flex-start);
+	@include flex-wrap;
+	margin: 0 -20px;
+	
+	.preview {
+		margin: 0;
+		@include flex(0,0,25%);
+		@include max-tablet { @include flex(0,0,50%); }
+		@include max-mini { @include flex(0,0,100%); }
+		vertical-align: top;
+		.preview-content {
+			padding: 20px;
+		}
+	}
+}
+
+
+a.preview {
+	@include active{
+		.preview-graphic {
+			@include transform(scale(1.0375));
+		}
+	}
+	.preview-graphic {
+		box-shadow: 0 10px 20px rgba(0,0,0,.075);
+		@include transitions;
+	}
+
+}

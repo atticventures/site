@@ -1,0 +1,131 @@
+.form {
+	@include font-size-small;
+}
+
+.label {
+	font-weight: bold;
+	display: block;
+	margin-top: 10px;
+}
+
+div.input[placeholder]:empty{
+	&:before {
+		content: attr(placeholder);
+	}
+}
+
+.btn, .input {
+	-webkit-appearance: none;
+	@include font-size-small;
+	@include transitions;
+	height: 2.8em;
+	display: inline-block;
+	padding: .6em 1.3em;
+	min-width: 2.8em;
+	cursor: pointer;
+	[data-symbol] { margin-right: -.25em; }
+	line-height: $line-height-base;
+}
+
+.btn {
+	//text-transform: lowercase;
+	@include pill;
+	text-align: center;
+	word-spacing: 0;
+}
+
+.btns {
+	margin-left: -.25rem;
+	margin-right: -.25rem;
+	.form & {
+		margin-top: 20px;
+	}
+	.btn {
+		margin-left: .25em;
+		margin-right: .25em;
+	}
+}
+
+.btn-block {
+	display: block;
+}
+
+.btn-link {
+	padding: 0;
+	//padding-right: 0;
+	height: auto;
+
+}
+
+.btn-default {
+	color: $normal;
+	background-color: white;
+	@include shadow;
+	@include active {
+		@include shadow(10px);
+	}
+	.navy & {
+		background-color: transparentize($blue,.9);
+		color: white;
+		box-shadow: none;
+	}
+}
+
+.btn-faint {
+	color: white !important; background: transparent; box-shadow: inset 0 0 0 1px rgba(255,255,255,.2);
+
+	@include active {
+		 box-shadow: inset 0 0 0 1px rgba(255,255,255,.5) !important;
+		
+	}
+}
+
+.btn-primary { background: $blue; color: white !important; }
+.btn-blue { background: $blue; color: white !important; }
+.btn-green { background: $green; color: white !important; }
+.btn-lime { background: $lime; color: white !important; }
+.btn-purple { background: $purple; color: white !important; }
+.btn-orange { background: $orange; color: white !important; }
+.btn-navy { background: $navy; color: white !important; }
+.btn-yellow { background: $yellow; color: white !important; }
+
+.btn-faint {  }
+
+.btn-icon { strong { display: none; } background-size: 75%; background-repeat: no-repeat; background-position: 50% 50%;
+	@include transitions;
+	@include active {
+		@include transform(scale(1.1));
+		box-shadow: 0 5px 10px rgba(0,0,0,.2);
+	}
+}
+.btn-twitter { background-image: url(/ui/img/icons/twitter.svg); }
+.btn-linkedin { background-image: url(/ui/img/icons/linkedin.svg); }
+.btn-angelist { background-image: url(/ui/img/icons/angelist.svg); }
+.btn-medium { background-image: url(/ui/img/icons/medium.svg); }
+.btn-mail { background-image: url(/ui/img/icons/mail.svg); }
+
+
+.input {
+	background: transparent;
+	border-bottom: 1px solid;
+	width: 100%;
+	&:hover { border-color: white; }
+	color: white;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.fields {
+	@include flex-row;
+	@include flex-wrap;
+	margin: 0 -10px;
+	.field {
+		@include flex(1,0,200px);
+		padding: 0 10px 10px;
+	}
+}
+
+textarea.input {
+	resize: vertical;
+	overflow: hidden;
+}

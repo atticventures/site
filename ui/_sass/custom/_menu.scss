@@ -1,0 +1,65 @@
+.menu {
+	z-index: 5;
+	@include fill;
+	position: fixed;
+	opacity: 0;
+	top: 100%;
+	@include scroll;
+	@include trans(opacity,.5s,linear);
+	&.active {
+		top: 0;
+		opacity: 1;
+		@include trans(opacity,.5s,linear);
+	}
+	&.inactive {
+		opacity: 0;
+	}
+}
+
+.menu-content {
+	@include fill;
+	@include table(middle);
+	opacity: 0;
+	@include transitions(.5s,$bezier,.25s);
+	@include transform(scale(.95));
+	.menu.active & {
+		@include transform(scale(1));
+		opacity: 1;
+	}
+	.menu.inactive & {
+		@include transitions(.5s,$bezier);
+		@include transform(scale(.95));
+		opacity: 0;
+	}
+}
+
+.menu-body {
+	width: 100%;
+	padding: 4vw;
+	.sections {
+		width: 92vw;
+		max-width: $laptop;
+		margin: auto;
+	}
+	.menu:not(.active) & {
+		// prevents resources from rendering
+		display: none;
+	}
+	@include max-tablet{
+		padding: 0;
+		.section.small { display: none; }
+		.sections {
+			width: 100vw;
+			.section {
+				min-height: 100vh;
+			}
+		}
+	}
+}
+
+//.doc { @include trans(opacity,.5s,linear); }
+
+.menu-visible {
+	overflow: hidden;
+	.doc { @include filter(blur(15px)); opacity: .15; }
+}

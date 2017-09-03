@@ -1,0 +1,28 @@
+---
+label: Sitemap
+title: Sitemap
+exclude: true
+sitemap: false
+---
+
+
+<div class="sections">
+	<div class="section header text dark ">
+		<div class="section-content">
+			<div class="snug short">
+				{% assign types = 'pages' | split: ',' %}
+					{% for type in types %}
+						<h3>{{type | capitalize }}</h3>
+						<ul class="columns">
+							{% assign list = site[type] | sort: 'order' %}
+							{% for post in list %}
+								{% unless post.sitemap == false %}
+									<li><a href="{{site.baseurl}}{{post.url}}">{{ post.label | default: post.title }}</a></li>
+								{% endunless %}
+							{% endfor %}
+						</ul>
+					{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>

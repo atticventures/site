@@ -1,0 +1,9 @@
+.page {
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+body { background: black; }
+
+@include small { [data-large] { display: none !important; } }
+@include large { [data-small] { display: none !important; } }

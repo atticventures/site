@@ -1,0 +1,110 @@
+		{% capture title %}{% if page.title %}{{ page.title }}{% endif %}{% endcapture %}
+		{% capture description %}{{ page.description | default: site.description }}{% endcapture %}
+		{% capture image %}{{site.url}}{{ site.baseurl }}{% if page.banner %}/assets/banners/{{ page.banner }}{% else %}{{ site.banner }}{% endif %}{% endcapture %}
+		{% capture url %}{{site.url}}{{ site.baseurl }}{{ page.url }}{% endcapture %}
+		{% comment %} METADATA {% endcomment %}
+		
+		<title>{{ title }} - {{ site.title }}</title>
+		<meta name="description" content="{{ description }}" />
+		<link rel="canonical" href="{{ url }}" />
+		
+		{% comment %} IMAGES {% endcomment %}
+		{% if site.favicon %}<link rel="shortcut icon" href="{{site.baseurl}}{{ site.favicon }}" />{% endif %}
+		{% if site.avatar %}<link rel="apple-touch-icon" href="{{site.baseurl}}{{ site.avatar }}" />{% endif %}
+		
+		{% comment %} OPENGRAPH {% endcomment %}
+		<meta property="og:locale" content="en_US" />
+		<meta property="og:type" content="{{ page.og_type | default: 'website' }}" />
+		<meta property="og:url" content="{{ url }}" />
+		<meta property="og:site_name" content="{{ site.title }}" />
+		<meta property="og:title" content="{{ title }} - {{site.title}}" />
+		<meta property="og:description" content="{{ description }}" />
+		<meta property="og:image" content="{{ image }}" />
+		<meta property="og:image:width" content="1600" />
+		<meta property="og:image:height" content="900" />
+		{% if page.og_section %}<meta property="article:section" content="{{ page.og_section }}" />{% endif %}
+		
+		{% comment %} TWITTER {% endcomment %}
+		<meta name="twitter:card" content="summary_large_image"/>
+		<meta name="twitter:title" content="{{ title }} - {{site.title}}"/>
+		<meta name="twitter:description" content="{{ description }}"/>
+		<meta name="twitter:image" content="{{ image }}"/>
+		{% if site.twitter %}<meta name="twitter:site" content="@{{ site.twitter }}"/>{% endif %}
+
+		{% comment %} STRUCTURED DATA {% endcomment %}
+		<script type="application/ld+json">
+			{
+				{% if page.og_type %}
+					"@context": "http://schema.org",
+					"@type": "NewsArticle",
+					"headline": "{{ title }}",
+					"description": "{{ description }}",
+					"image": {
+						"@type": "ImageObject",
+						"url": "{{ image }}",
+						"height":"900",
+						"width":"1600"
+					},
+					"mainEntityOfPage": {
+						"@type": "WebPage",
+						"@id": "{{ url }}"
+					},
+					"publisher":"{{site.title}}",
+					"datePublished":"{{ page.published | default: site.published }}",
+					"author": {
+						"@type": "Person",
+						"name": "{{ page.author | default: site.author }}"
+					}
+				{% else %}
+					"@context": "http://schema.org",
+					"@type": "LocalBusiness",
+					"name": "{{ site.title }}",
+					"@id": "{{ url }}",
+					"image": "{{ image }}",
+					"address": {
+						"@type": "PostalAddress",
+						"streetAddress": "{{site.streetAddress}}",
+						"addressLocality": "{{site.addressLocality}}",
+						"addressRegion": "{{site.addressRegion}}",
+						"postalCode": "{{site.postalCode}}",
+						"addressCountry": "{{site.addressCountry}}"
+					},
+					"url": "{{site.url}}",
+					"telephone": "+1{{site.tel | replace: '-',''}}",
+					"email": "{{site.email}}",
+					"geo": {
+						"@type": "GeoCoordinates",
+						"latitude": {{site.latitude}},
+						"longitude": {{site.longitude}}
+					}
+				{% endif %}
+			}
+		</script>
+		{% comment %}
+		{% if page.questions %}
+			{% for question in page.questions %}
+				<script type="application/ld+json">
+					{
+						"@context": "http://schema.org",
+						"@type": "Question",
+						"text": "{{question.question}}",
+						"dateCreated": "{{ page.published | default: site.published }}",
+						"author": {
+							"@type": "Person",
+							"name": "{{ page.author | default: site.author }}"
+						},
+						"answerCount": "1",
+						"acceptedAnswer": {
+							"@type": "Answer",
+							"text": "{{question.answer}}",
+							"dateCreated": "{{ page.published | default: site.published }}",
+							"author": {
+								"@type": "Person",
+								"name": "{{ page.author | default: site.author }}"
+							}
+						}
+					}
+				</script>
+			{% endfor %}
+		{% endif %}
+		{% endcomment %}

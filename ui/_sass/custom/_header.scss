@@ -1,0 +1,6 @@
+.header {
+	@include small{
+		@include compact;
+		p { display: none; }
+	}
+}

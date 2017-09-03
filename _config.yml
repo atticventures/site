@@ -1,0 +1,80 @@
+# --------------------------------------------------
+# Site settings
+
+title: "Attic Ventures"
+description: "We create, invest in, and develop digital businesses."
+google_analytics: false
+robots: true
+
+email: "info@atticventures.com"
+email_subject: "Here's our story..."
+
+published: 2017-08-31
+author: "Mark Johnson"
+streetAddress: "201 W Main St"
+addressLocality: "Durham"
+addressRegion: "NC"
+postalCode: "27701"
+addressCountry: "US"
+latitude: "35.9955963"
+longitude: "-78.9043407"
+
+linkedin: "markgregoryjohnson"
+twitter: "atticventures"
+angelist: "attic-ventures"
+medium: "mgjohnson"
+
+# --------------------------------------------------
+# Site imagery
+
+favicon: /favicon.ico
+avatar: /ui/img/graph/avatar.png
+banner: /ui/img/graph/poster.jpg
+
+# --------------------------------------------------
+# the subpath of your site, e.g. /blog
+
+url: ""
+baseurl: "/site/"
+
+# --------------------------------------------------
+# Gems
+
+gems:
+  - jekyll-sitemap
+  - jekyll-redirect-from
+
+# --------------------------------------------------
+# Build settings
+
+includes_dir: _config/_includes
+layouts_dir: _config/_layouts
+
+sass:
+  style: compressed
+  sass_dir: ui/_sass
+
+collections:
+  pages:
+    output: true
+    permalink: /:path/
+  raw:
+    output: true
+    permalink: /:path
+
+defaults:
+-
+  scope:
+    path: ""
+    type: "pages"
+  values:
+    layout: "page"
+-
+  scope:
+    path: ""
+    type: "raw"
+  values:
+    layout: "raw"
+    sitemap: false
+
+

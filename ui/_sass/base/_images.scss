@@ -1,0 +1,39 @@
+img {
+	width: 100%;
+	max-width: 100%;
+	display: block;
+	box-shadow: none;
+	&:hover {
+		box-shadow: none;
+	}
+}
+
+[data-img], [data-bg] {
+	@include background();
+	&.contain {
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+}
+
+[data-img],
+[data-bg] {
+	img { @include transitions(.25s); opacity: 1; }
+	&.loaded {
+		img { opacity: 0; }
+	}
+	&:not(.nofill) {
+		&:empty {
+			&:before {
+				content: '';
+				display: block;
+				padding-bottom: percentage(1/2);
+			}
+		}
+	}
+	@include large{
+		&.slim:not(.nofill):before {
+			padding-bottom: percentage(2/5);
+		}
+	}
+}

@@ -1,0 +1,11 @@
+.recommendations {
+	.previews {
+		@include flex-justify(center);
+	}
+	.preview {
+		&:not(:nth-child(-n+4)){
+			display: none;
+		}
+		#{h()} { font-weight: normal; }
+	}
+}

@@ -1,0 +1,6 @@
+---
+title: Robots
+norobots: false
+---
+User-agent: *
+Disallow: {% unless site.robots %}/{% endunless %}

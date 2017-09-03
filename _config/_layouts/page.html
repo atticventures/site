@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+	<head>
+		{% include options/settings.html %}
+		{% include options/meta.html %}
+		{% include options/styles.html %}
+	</head>
+	<body>
+		<div class="bg" data-vide-bg="{{site.baseurl}}/ui/vid/bg" data-vide-options="posterType: jpg, loop: true, muted: true, position: 50% 50%"></div>
+		<div class="doc">
+			{% include content/nav.html %}
+			<div class="page">
+				<main class="main">
+					{{ content }}
+				</main>
+				{% include content/footer.html %}
+			</div>
+		</div>
+		{% include options/scripts.html %}
+	</body>
+</html>

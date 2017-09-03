@@ -1,0 +1,5 @@
+.bg {
+	@include fill;
+	position: fixed;
+	video { height: 100vh; }
+}

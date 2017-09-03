@@ -1,0 +1,39 @@
+
+@mixin transitions($speed:.25s, $curve:$bezier,$delay:0) {
+	-webkit-transition: all $speed $curve;
+	transition: all $speed $curve;
+	@if $delay {
+		-webkit-transition-delay: $delay;
+		transition-delay: $delay;
+	}
+}
+
+@mixin trans($transitions,$speed:.25s,$curve:$bezier,$delay:0) {
+	@include transitions($speed,$curve);
+	-webkit-transition-property: $transitions;
+	transition-property: $transitions;
+	@if $delay {
+		-webkit-transition-delay: $delay;
+		transition-delay: $delay;
+	}
+}
+
+
+@mixin transform($transform,$origin:(50% 50%)) {
+	-webkit-transform: $transform;
+	transform: $transform;
+	@if $origin != (50% 50%) {
+		-webkit-transform-origin: $origin;
+		transform-origin: $origin;
+	}
+}
+
+@mixin animation($animation) {
+	-webkit-animation: $animation;
+	animation: $animation;
+}
+
+@mixin keyframes($name) {
+	@-webkit-keyframes #{$name} { @content; }
+	@keyframes #{$name} { @content; }
+}

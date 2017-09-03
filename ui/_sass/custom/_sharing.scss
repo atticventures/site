@@ -1,0 +1,17 @@
+.sharing {
+	@include flex-row;
+	margin: 0 -.375em;
+	&.sharethis { @include flex-justify(center); margin-top: 1.5em; margin-bottom: 1.5em; }
+	.btn {
+		@include flex(0,0,3em);
+		padding-left: 0;
+		padding-right: 0;
+		text-align: center;
+		@include transitions;
+		margin: 0 .375em;
+		@include active{
+			@include transform(scale(1.1));
+			box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+		}
+	}
+}

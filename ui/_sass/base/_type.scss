@@ -1,0 +1,79 @@
+html {
+	font-size: $font-size-root;
+	@include large { font-size: $font-size-root-full; }
+}
+
+body { @include sans; background: $silver; color: $normal; }
+
+* {
+	$slope: -1 * ( 1 - $line-height-base ) / strip-unit( $line-height-max - 1rem );
+	line-height: calc( 1em + #{$slope} * ( #{$line-height-max} - 1em ) );
+}
+
+a {
+	color: $blue;
+	text-decoration: none;
+	@include transitions;
+	cursor: pointer;
+	@include active { color: darkest($blue); }
+}
+
+#{h()}, blockquote { color: $dark; }
+#{h()}, blockquote, ul, ol, p, q, form, hr, cite, .p { margin: .5rem 0; }
+
+
+#{h()}, blockquote, ul, ol, p, form, hr, q, .p {
+	&:first-child { margin-top: 0 !important; }
+	&:last-child { margin-bottom: 0 !important; }
+}
+
+blockquote { @include font-size-h3; }
+q { @include font-size-h4; display: block; }
+blockquote, q { @include serif; font-style: oblique; quotes: none; }
+cite { @include font-size-small; display: block; opacity: .667; }
+
+.huge { &:not(.p) { @include font-size-huge; } }
+#{h(1)} { &:not(.p) { @include font-size-h1; }  }
+#{h(2)} { &:not(.p) { @include font-size-h2; } }
+#{h(3)} { &:not(.p) { @include font-size-h3; } }
+#{h(4)} { &:not(.p) { @include font-size-h4; } }
+#{h(5)} { &:not(.p) { @include font-size-h5; } }
+#{h(6)} { &:not(.p) { @include font-size-h6; } }
+#{h(1,5)} { text-transform: lowercase; }
+#{h(1,4)} { font-weight: 300; }
+
+li { @include compact; }
+
+small {
+	font-weight: normal; 
+	@include font-size-base;
+	color: $light;
+	@include small {
+		display: block;
+	}
+}
+
+.margin-left { margin-left: 1em; }
+.margin-right { margin-right: 1em; }
+
+
+hr {
+	width: 200px;
+	border-top: 1px solid $lime;
+	margin: 4em 0;
+}
+
+// .columns { @include columns(3,220px,60px); }
+// .column { @include avoid-break; }
+
+.large { @include font-size-large; }
+.larger { @include font-size-larger; }
+.small { @include font-size-small; }
+.hidden { display: none !important; }
+.center { text-align: center; margin-left: auto; margin-right: auto; max-width: 1080px; }
+.short { max-width: $phablet; }
+.compact { @include compact; }
+.snug { @include snug; }
+.light { opacity: .5; }
+
+.text-yellow { color: $yellow !important; }

@@ -1,0 +1,49 @@
+.squares {
+	@include flex-row();
+	@include flex-wrap();
+	@include flex-align(stretch);
+}
+
+.square {
+	display: block;
+	&:before {
+		content: '';
+		display: block;
+		padding-bottom: 100% !important;
+	}
+	z-index: 2;
+	background-color: $silver;
+	@include flex(0,0,percentage(1/6));
+	.section.half & {
+		@include flex(0,0,percentage(1/3));
+	}
+	@include small{
+		@include flex(0,0,percentage(1/3));
+	}
+	.overlay {
+		@include fill;
+		@include flex-column;
+		@include flex-justify(center);
+		background-color: $green;
+		opacity: 0;
+		@include transitions;
+		strong {
+			display: block;
+			text-align: center;
+			@include flex(0,0,0);
+			color: white;
+		}
+	}
+}
+
+a.square {
+	@include active {
+		z-index: 3;
+		.overlay {
+			opacity: 1;
+			
+			//@include transform(scale(1.1));
+			box-shadow: 0 10px 20px rgba(0,0,0,.2);
+		}
+	}
+}

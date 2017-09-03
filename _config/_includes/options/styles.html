@@ -1,0 +1,12 @@
+
+		{% if site.host == 'localhost' %}
+			<link rel="stylesheet" type="text/css" href="{{site.baseurl}}/ui/css/attic.css" media="all" />
+		{% else %}
+			<style>
+				/* This CSS resource incorporates links to font software which is the valuable copyrighted property of Monotype Imaging and/or its suppliers. You may not attempt to copy, install, redistribute, convert, modify or reverse engineer this font software. Please contact Monotype Imaging with any questions regarding Web Fonts:  http://www.fonts.com */
+				{% capture styles %}{% include styles/inline.scss %}{% endcapture %}
+				{% capture ui %}{{site.baseurl}}/ui/{% endcapture %}
+				{{ styles | scssify | replace: '/ui/' , ui }}
+			</style>
+		{% endif %}
+

@@ -1,0 +1,40 @@
+.tiles {
+	@include flex-row;
+	@include flex-wrap;
+	@include flex-wrap;
+	margin: 3rem -1rem calc( 3vh + 3vw );
+	@include bookend;
+	.tile {
+		display: block;
+		@include flex(0,0,25%);
+		@include max-phablet {
+			@include flex(0,0,50%);
+		}
+
+		.tile-content {
+			padding: .75rem;
+			.tile-graphic {
+				background: white;
+				@include background;
+				@include transitions;
+				@include before {
+					content: '';
+					display: block;
+					padding-bottom: percentage(9/16);
+				}
+				border-radius: 3px;
+				@include shadow;
+			}
+			.tile-body {
+				display: none;
+			}
+		}
+		@include active {
+			z-index: 2;
+			.tile-graphic {
+				@include transform(scale(1.07));
+				@include shadow(10px);
+			}
+		}
+	}
+}

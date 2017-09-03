@@ -1,0 +1,84 @@
+---
+title: We create, invest in, and develop digital businesses
+permalink: /
+exclude: true
+video: /assets/vid/alt2
+logo: nav-logo-yellow
+---
+
+<div class="sections">
+	<div class="section header dark bottom">
+		<div class="section-content">
+			<div class="short">
+				<h1>Creating, investing in, and operating digital businesses.</h1>
+			</div>
+		</div>
+	</div>
+	<div class="section bg-white" id="work">
+		<div class="section-content">
+			<div class="center">
+				<h5 class="light">Our Work</h5>
+				<h3>Helping digital businesses get to the next level.</h3>
+			</div>
+			<div class="tiles">
+				{% include content/tile.html title="Conde Nast" desc="Create. Connect. Condé Nast on Condé Nast." link="http://www.condenast.com/" image="condenast.jpg" %}
+				{% include content/tile.html title="Cuseum" desc="Cuseum helps museums accelerate visitor engagement." link="http://www.cuseum.com/" image="cuseum.jpg" %}
+				{% include content/tile.html title="Scripto" desc="Collaborative writing and real-time production, right from your browser." link="http://www.scripto.cc/" image="scripto.jpg" %}
+				{% include content/tile.html title="Hotel Chatter" desc="The latest on hotels from Condé Nast Traveler. Get hotel ratings and reviews plus industry news to help you find the best hotels around the world." link="http://www.hotelchatter.com/" image="hotelchatter.jpg" %}
+			</div>
+			<div class="grid">
+				<div class="cell">
+					<h5>Investing</h5>
+					<p>We run an open ended angel fund that invests in pre seed rounds of exceptional entrepreneurs.</p>
+				</div>
+				<div class="cell">
+					<h5>Creating</h5>
+					<p>We create and build our own experimental digital side projects in areas that interest us.</p>
+				</div>
+				<div class="cell">
+					<h5>Operating</h5>
+					<p>We help digital startups get to the next level.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="section dark bg-dark" id="contact">
+		<div class="section-content">
+			<div class="center">
+				<h5 class="light">Contact Us</h5>
+				<h3 data-large>We are looking for creation stage opportunities and budding digital businesses.</h3>
+				<h4 data-small>We are looking for creation stage opportunities and budding digital businesses.</h4>
+				<div class="form">
+					<div class="btns">
+						<a href="mailto:{{ site.email }}?subject={{ site.email_subject | url_encode | replace: '+','%20' }}" title="Contact Attic Ventures" class="btn btn-primary">Tell us your story <i data-symbol="right"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="section dark bg-darker">
+		<div class="section-content">
+			<div class="grid">
+				<div class="cell center">
+					<h5>Founder Bio</h5>
+					<div class="form">
+						<div class="btns">
+							<a href="https://www.linkedin.com/in/{{site.linkedin}}" rel="nofollow" target="_blank" class="btn btn-faint">Mark G. Johnson <i data-symbol="right"></i></a>
+						</div>
+					</div>
+				</div>
+				<div class="cell center">
+					<h5>Connect</h5>
+					<div class="form">
+						<div class="btns">
+							{% if site.linkedin %}<a href="https://www.linkedin.com/in/{{site.linkedin}}" rel="nofollow" target="_blank" class="btn btn-faint btn-icon btn-linkedin" title="{{site.author}}, {{site.title}} on Linkedin"><strong class="hidden">{{site.author}}, {{site.title}} on Linkedin</strong></a>{% endif %}
+							{% if site.twitter %}<a href="https://twitter.com/{{site.twitter}}" rel="nofollow" target="_blank" class="btn btn-faint btn-icon btn-twitter" title="{{site.author}}, {{site.title}} on Twitter"><strong class="hidden">{{site.author}}, {{site.title}} on Twitter</strong></a>{% endif %}
+							{% if site.medium %}<a href="https://medium.com/@{{site.medium}}" rel="nofollow" target="_blank" class="btn btn-faint btn-icon btn-medium" title="{{site.author}}, {{site.title}} on Medium"><strong class="hidden">{{site.author}}, {{site.title}} on Medium</strong></a>{% endif %}
+							{% if site.angelist %}<a href="https://angel.co/{{site.angelist}}" rel="nofollow" target="_blank" class="btn btn-faint btn-icon btn-angelist" title="{{site.author}}, {{site.title}} on AngelList"><strong class="hidden">{{site.author}}, {{site.title}} on AngelList</strong></a>{% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

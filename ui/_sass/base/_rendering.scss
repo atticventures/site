@@ -1,0 +1,13 @@
+html {
+	text-rendering: optimizeLegibility;
+
+	-webkit-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	font-smoothing: grayscale;
+}
+
+body,html { width: 100%; min-height: 100vh; }

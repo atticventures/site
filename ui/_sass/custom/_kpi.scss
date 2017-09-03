@@ -1,0 +1,23 @@
+.kpi-group {
+	@include flex-row;
+	@include flex-wrap;
+	//@include flex-align(flex-start);
+	margin: 1.5rem auto;
+	@include bookend;
+}
+
+.kpi {
+	@include flex(1,0,260px);
+	h3 {
+		@include font-size-h2; position: static; 
+		&:before {
+			content: '';
+			@include fill;
+			border-left: 1px solid;
+		}
+	}
+	@include font-size-small;
+	> * { margin: .5rem 0; }
+	padding: 0 1rem 0 2rem;
+	margin: 1rem 0;
+}

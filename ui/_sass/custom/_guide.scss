@@ -1,0 +1,35 @@
+.guide {
+	padding: 4vw 5vw;
+	@include font-size-small;
+	@include min-desktop { padding: ( .01 * 5 * $desktop ); }
+	@include max-tablet{ padding: 9vw; }
+	#{h(4,5)} { font-weight: normal; }
+}
+
+.guide-links {
+	& + & { margin-top: 1em; }
+	a { padding: .375em 0; display: block; }
+	// ul:not(.columns) li {
+	// 	&:first-child { padding-top: 0; }
+	// 	&:last-child { padding-bottom: 0; }
+	// }
+	// &.md {
+	// 	@include font-size-h4;
+	// 	a { color: white; }
+	// }
+	// &.lg {
+	// 	li { padding: 0; }
+	// 	a {
+	// 		padding: .75rem 0;
+	// 	}
+	// }
+}
+
+.guide-split {
+	@include flex-row;
+	@include flex-wrap;
+	margin: 0 -30px;
+	> * { padding: 9px 30px; }
+}
+.guide-promo { @include flex(1,1,200px); }
+.guide-list { @include flex(1,1,240px); }

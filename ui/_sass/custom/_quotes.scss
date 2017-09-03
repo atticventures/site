@@ -1,0 +1,24 @@
+.quotes {
+	overflow: hidden;
+	width: 100%;
+}
+
+.quote {
+	@include snug;
+}
+
+
+.slides {
+	width: calc( 100% + 20px );
+	left: -10px;
+	overflow: hidden;
+	@include flex-row;
+	@include flex-align(stretch);
+}
+
+.slide {
+	@include flex(0,0,100%);
+	@include flex-column;
+	@include flex-justify(center);
+	padding: 0 10px;
+}
