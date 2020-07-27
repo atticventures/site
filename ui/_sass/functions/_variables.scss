@@ -62,7 +62,7 @@ $font-size-root-full:                            18px;
 @function rem-multiply($size,$mult){ $unit: strip-unit($size) * $mult; @return #{$unit}rem; }
 
 $font-size-base:                                 1rem; // base
-$font-size-label:                                rem-full(12px); // label
+$font-size-label:                                rem-full(14px); // label
 $font-size-small:                                rem(18px); // small
 $font-size-small-full:                           rem-full(18px); // small
 $font-size-large:                                1rem; // large

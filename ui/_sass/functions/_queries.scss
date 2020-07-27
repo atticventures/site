@@ -19,6 +19,9 @@ $query_display: "min-width: " ($desktop + 1px) "";
 $query_small_device: "max-device-width: " ($tablet);
 $query_large_device: "min-device-width: " ($tablet + 1px);
 
+@mixin click { @media ( hover: hover ) { @content; } }
+@mixin touch { @media ( hover: none ) { @content; } }
+
 @mixin mini(){ @media ( $query_mini ) { @content; } }
 @mixin phone(){ @media ( $query_phone ) { @content; } }
 @mixin phablet(){ @media ( $query_phablet ) { @content; } }

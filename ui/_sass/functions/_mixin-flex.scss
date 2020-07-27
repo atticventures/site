@@ -39,8 +39,8 @@
 	@include flex-prefix(align-content,$val);
 }
 
-@mixin flex-wrap($val:nowrap){
-	@include flex-prefix(flex-wrap,wrap);
+@mixin flex-wrap($val:wrap){
+	@include flex-prefix(flex-wrap,$val);
 }
 
 

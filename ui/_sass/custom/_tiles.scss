@@ -1,10 +1,21 @@
 .tiles {
 	@include flex-row;
-	@include flex-wrap;
-	@include flex-wrap;
-	margin: 3rem -1rem calc( 3vh + 3vw );
+	@include flex-wrap(nowrap);
+	margin: 2rem -1rem;
 	@include bookend;
+	overflow: hidden;
+	overflow-x: scroll;
+	padding: 12px 0;
+	@include small {
+		margin-left: -9vw;
+		margin-right: -9vw;
+	}
+	@include touch { scroll-snap-type: x mandatory; }
 	.tile {
+		&:first-child { margin-left: auto; }
+		&:last-child { margin-right: auto; }
+		color: inherit;
+		scroll-snap-align: start;
 		display: block;
 		@include flex(0,0,25%);
 		@include max-phablet {
@@ -27,6 +38,11 @@
 			}
 			.tile-body {
 				display: none;
+			}
+			.tile-label {
+				text-align: center;
+				padding-top: 12px;
+				@include font-size-label;
 			}
 		}
 		@include active {
