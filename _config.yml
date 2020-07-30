@@ -35,7 +35,7 @@ banner: /ui/img/graph/poster.jpg
 # the subpath of your site, e.g. /blog
 
 url: "http://atticventures.com"
-baseurl: "/"
+baseurl: ""
 
 # --------------------------------------------------
 # Gems
