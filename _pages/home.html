@@ -4,6 +4,43 @@ permalink: /
 exclude: true
 video: /assets/vid/alt2
 logo: nav-logo-yellow
+tiles:
+- title: Foodboro
+  desc: Foodboro is a community for food &amp; beverage makers. We gather intelligence, insights, and provide members with the services they need to navigate the future of food and beverage.
+  link: https://www.foodboro.com/
+  img: foodboro.jpg
+  label: Label text
+- title: Supercast
+  desc: Easily deliver subscriber-exclusive content to your most passionate fans, get paid, and enjoy rich analytics on your business.
+  link: https://www.supercast.com/
+  img: supercast.jpg
+  label: Label text
+- title: Pryon
+  desc: Pryon is an AI company that delivers augmented intelligence for the enterprise. Driven by the inventors of core natural language technologies, the company is developing a platform that connects employees to digital transformation, extending their ability to find and use knowledge, drive workflows, and make better decisions from wherever they are.
+  link: https://www.pryon.com/
+  img: pryon.jpg
+  label: Label text
+- title: Conde Nast
+  desc: Create. Connect. Condé Nast on Condé Nast.
+  link: http://www.condenast.com/
+  img: condenast.jpg
+  label: Label text
+- title: Cuseum
+  desc: Cuseum helps museums accelerate visitor engagement.
+  link: http://www.cuseum.com/
+  img: cuseum.jpg
+  label: Label text
+- title: Scripto
+  desc: Making television is hard. Scripto makes it easier.
+  link: http://www.scripto.live/
+  img: scripto.jpg
+  label: Label text
+- title: Hotel Chatter
+  desc: The latest on hotels from Condé Nast Traveler. Get hotel ratings and reviews plus industry news to help you find the best hotels around the world.
+  link: http://www.cntraveler.com/
+  img: hotelchatter.jpg
+  label: Label text
+
 ---
 
 <div class="sections">
@@ -17,15 +54,20 @@ logo: nav-logo-yellow
 	<div class="section bg-white" id="work">
 		<div class="section-content">
 			<div class="center">
-				<h5 class="light">Our Work</h5>
-				<h3>Helping digital businesses get to the next level.</h3>
+				<h3>Our Work</h3>
 			</div>
-			<div class="tiles">
-				{% include content/tile.html label="Label text" title="Conde Nast" desc="Create. Connect. Condé Nast on Condé Nast." link="http://www.condenast.com/" image="condenast.jpg" %}
-				{% include content/tile.html label="Label text" title="Cuseum" desc="Cuseum helps museums accelerate visitor engagement." link="http://www.cuseum.com/" image="cuseum.jpg" %}
-				{% include content/tile.html label="Label text" title="Scripto" desc="Making television is hard. Scripto makes it easier." link="http://www.scripto.live/" image="scripto.jpg" %}
-				{% include content/tile.html label="Label text" title="Hotel Chatter" desc="The latest on hotels from Condé Nast Traveler. Get hotel ratings and reviews plus industry news to help you find the best hotels around the world." link="http://www.cntraveler.com/" image="hotelchatter.jpg" %}
-				{% include content/tile.html label="Label text" title="Hotel Chatter" desc="The latest on hotels from Condé Nast Traveler. Get hotel ratings and reviews plus industry news to help you find the best hotels around the world." link="http://www.cntraveler.com/" image="hotelchatter.jpg" %}
+			<div>
+				<div class="tiles" id="tiles">
+					{% for tile in page.tiles %}
+						{% include content/tile.html label=tile.label title=tile.title desc=tile.desc link=tile.link image=tile.img %}
+					{% endfor %}
+				</div>
+				{% if page.tiles.size > 4 %}
+					<div class="tiles-controls">
+						<a class="tiles-control tiles-control-previous btn btn-default btn-icon btn-previous" title="previous" data-toggle="previous" data-target="#tiles"></a>
+						<a class="tiles-control tiles-control-next btn btn-default btn-icon btn-next" title="next" data-toggle="next" data-target="#tiles"></a>
+					</div>
+				{% endif %}
 			</div>
 			<div class="grid">
 				<div class="cell">

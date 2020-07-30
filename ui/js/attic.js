@@ -68,7 +68,7 @@ $(document).ready(function(){
 	$('a').each(function(){
 		var href = $(this).attr('href');
 		var loc = location.host;
-		if ( href.indexOf('/') != 0 && href.indexOf('#') != 0 && href.indexOf(loc) == -1 && !$(this).attr('target') ) {
+		if ( href && href.indexOf('/') != 0 && href.indexOf('#') != 0 && href.indexOf(loc) == -1 && !$(this).attr('target') ) {
 			$(this).attr('target','_blank').attr('rel','nofollow');
 		}
 	});
@@ -238,3 +238,25 @@ if ( $('.youtube').length ) {
 	});
 
 }
+
+// ------------------------------------ HORIZONTAL SCROLLING ------------------------------------
+
+function scroll_tiles(target,dir){
+	var current = target.scrollLeft();
+	var scroll = target[0].scrollWidth;
+	var width = target.width();
+	var max = scroll - width;
+	switch ( true ) {
+		// currently at start
+		case (current < 10): target.animate({ scrollLeft: max },375); break;
+		// currently at end
+		case (max - current < 10): target.animate({ scrollLeft: 0 },375); break;
+		// in between
+		default: target.animate({ scrollLeft: current - width * (dir=='left'?1:-1) },375); break;
+	}
+}
+
+$(document).on('click','[data-toggle="next"]',function(){ var target = $($(this).data('target')); scroll_tiles(target,'right'); return false; });
+$(document).on('click','[data-toggle="previous"]',function(){ var target = $($(this).data('target')); scroll_tiles(target,'left'); return false; });
+
+
