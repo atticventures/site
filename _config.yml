@@ -40,7 +40,7 @@ baseurl: ""
 # --------------------------------------------------
 # Gems
 
-gems:
+plugins:
   - jekyll-sitemap
   - jekyll-redirect-from
 
